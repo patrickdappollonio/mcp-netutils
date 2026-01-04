@@ -1,6 +1,8 @@
 version: 2
+project_name: mcp-netutils
 builds:
-  - env:
+  - binary: mcp-netutils
+    env:
       - CGO_ENABLED=0
     goos:
       - linux

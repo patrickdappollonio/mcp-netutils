@@ -2,6 +2,16 @@
 
 [![Github Downloads](https://img.shields.io/github/downloads/patrickdappollonio/mcp-netutils/total?color=orange&label=github%20downloads)](https://github.com/patrickdappollonio/mcp-netutils/releases)
 
+> [!IMPORTANT]
+>
+> This project is now called `mcp-netutils`. If you're upgrading, please update your references:
+> - **Docker images**: `ghcr.io/patrickdappollonio/mcp-netutils:latest`
+> - **npm package**: `@patrickdappollonio/mcp-netutils`
+> - **Homebrew**: `patrickdappollonio/tap/mcp-netutils`
+> - **Configuration key**: Use `"netutils"` in your MCP server configuration
+>
+> For more details about this change, see [issue #52](https://github.com/patrickdappollonio/mcp-domaintools/issues/52).
+
 <img src="https://i.imgur.com/cai3zrG.png" width="160" align="right" /> `mcp-netutils` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server providing comprehensive network and domain analysis capabilities for AI assistants. It enables AI models to perform DNS lookups, WHOIS queries, connectivity testing, TLS certificate analysis, HTTP endpoint monitoring, and hostname resolution.
 
 For local DNS queries, it uses the system's configured DNS servers. For remote DNS queries, it uses Cloudflare DNS-over-HTTPS queries with a fallback to Google DNS-over-HTTPS. This is more than enough for most use cases.
@@ -150,11 +160,6 @@ npx -y @patrickdappollonio/mcp-netutils@latest
 
 Which will run the MCP server in `stdio` mode (make sure that's the AI tool the one running `npx` though!).
 
-### Cursor
-
-You can use one-click to install in Cursor (note this will use the Docker version of the MCP server since it doesn't require a local binary installation):
-
-[![Install MCP Server](assets/cursor.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=netutils&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJnaGNyLmlvL3BhdHJpY2tkYXBwb2xsb25pby9tY3AtbmV0dXRpbHM6bGF0ZXN0Il0sImVudiI6e319)
 
 ### GitHub Releases
 
