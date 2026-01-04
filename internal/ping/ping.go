@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/mark3labs/mcp-go/mcp"
-	resp "github.com/patrickdappollonio/mcp-domaintools/internal/response"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/utils"
+	resp "github.com/patrickdappollonio/mcp-netutils/internal/response"
+	"github.com/patrickdappollonio/mcp-netutils/internal/utils"
 	"golang.org/x/net/icmp"
 	"golang.org/x/net/ipv4"
 	"golang.org/x/net/ipv6"
@@ -200,7 +200,7 @@ pingLoop:
 				Body: &icmp.Echo{
 					ID:   1234,
 					Seq:  i + 1,
-					Data: []byte("mcp-domaintools ping"),
+					Data: []byte("mcp-netutils ping"),
 				},
 			}
 		} else {
@@ -210,7 +210,7 @@ pingLoop:
 				Body: &icmp.Echo{
 					ID:   1234,
 					Seq:  i + 1,
-					Data: []byte("mcp-domaintools ping"),
+					Data: []byte("mcp-netutils ping"),
 				},
 			}
 		}

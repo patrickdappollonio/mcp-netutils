@@ -1,4 +1,4 @@
-module github.com/patrickdappollonio/mcp-domaintools
+module github.com/patrickdappollonio/mcp-netutils
 
 go 1.23.0
 

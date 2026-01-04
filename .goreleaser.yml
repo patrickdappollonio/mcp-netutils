@@ -19,7 +19,7 @@ builds:
 
 dockers:
   - image_templates:
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-amd64"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-amd64"
     goos: linux
     goarch: amd64
     use: buildx
@@ -34,7 +34,7 @@ dockers:
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
 
   - image_templates:
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-arm64"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-arm64"
     goos: linux
     goarch: arm64
     use: buildx
@@ -49,18 +49,18 @@ dockers:
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
 
 docker_manifests:
-  - name_template: "ghcr.io/patrickdappollonio/mcp-domaintools:v{{ .RawVersion }}"
+  - name_template: "ghcr.io/patrickdappollonio/mcp-netutils:v{{ .RawVersion }}"
     image_templates:
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-amd64"
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-arm64"
-  - name_template: "ghcr.io/patrickdappollonio/mcp-domaintools:v{{ .Major }}"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-amd64"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-arm64"
+  - name_template: "ghcr.io/patrickdappollonio/mcp-netutils:v{{ .Major }}"
     image_templates:
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-amd64"
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-arm64"
-  - name_template: "ghcr.io/patrickdappollonio/mcp-domaintools:latest"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-amd64"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-arm64"
+  - name_template: "ghcr.io/patrickdappollonio/mcp-netutils:latest"
     image_templates:
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-amd64"
-      - "ghcr.io/patrickdappollonio/mcp-domaintools:{{ .Tag }}-arm64"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-amd64"
+      - "ghcr.io/patrickdappollonio/mcp-netutils:{{ .Tag }}-arm64"
 
 archives:
   - name_template: >-

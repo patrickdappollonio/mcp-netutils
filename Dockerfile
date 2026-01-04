@@ -5,5 +5,5 @@ FROM scratch
 WORKDIR /
 COPY --from=builder /etc/nobody /etc/passwd
 USER nobody
-COPY mcp-domaintools /mcp-domaintools
-ENTRYPOINT ["/mcp-domaintools"]
+COPY mcp-netutils /mcp-netutils
+ENTRYPOINT ["/mcp-netutils"]

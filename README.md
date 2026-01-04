@@ -1,8 +1,8 @@
-# Network and domain tools MCP server `mcp-domaintools`
+# Network and domain utils MCP server `mcp-netutils`
 
-[![Github Downloads](https://img.shields.io/github/downloads/patrickdappollonio/mcp-domaintools/total?color=orange&label=github%20downloads)](https://github.com/patrickdappollonio/mcp-domaintools/releases)
+[![Github Downloads](https://img.shields.io/github/downloads/patrickdappollonio/mcp-netutils/total?color=orange&label=github%20downloads)](https://github.com/patrickdappollonio/mcp-netutils/releases)
 
-<img src="https://i.imgur.com/cai3zrG.png" width="160" align="right" /> `mcp-domaintools` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server providing comprehensive network and domain analysis capabilities for AI assistants. It enables AI models to perform DNS lookups, WHOIS queries, connectivity testing, TLS certificate analysis, HTTP endpoint monitoring, and hostname resolution.
+<img src="https://i.imgur.com/cai3zrG.png" width="160" align="right" /> `mcp-netutils` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server providing comprehensive network and domain analysis capabilities for AI assistants. It enables AI models to perform DNS lookups, WHOIS queries, connectivity testing, TLS certificate analysis, HTTP endpoint monitoring, and hostname resolution.
 
 For local DNS queries, it uses the system's configured DNS servers. For remote DNS queries, it uses Cloudflare DNS-over-HTTPS queries with a fallback to Google DNS-over-HTTPS. This is more than enough for most use cases.
 
@@ -25,17 +25,17 @@ For custom WHOIS servers, you can use the `--custom-whois-server` flag. The serv
 
 ## Installation
 
-There are three ways to get this MCP server: you can use the Docker mode (which, if you have Docker installed, will automatically download and run the MCP server) or the binary options, both by getting one [from the releases page](https://github.com/patrickdappollonio/mcp-domaintools/releases) or by [installing it with Homebrew for macOS and Linux](#homebrew-macos-and-linux).
+There are three ways to get this MCP server: you can use the Docker mode (which, if you have Docker installed, will automatically download and run the MCP server) or the binary options, both by getting one [from the releases page](https://github.com/patrickdappollonio/mcp-netutils/releases) or by [installing it with Homebrew for macOS and Linux](#homebrew-macos-and-linux).
 
 ### Editor Configuration
 
-Add the following configuration to your editor's settings to use `mcp-domaintools` via the binary option:
+Add the following configuration to your editor's settings to use `mcp-netutils` via the binary option:
 
 ```json5
 {
   "mcpServers": {
-    "domaintools": {
-      "command": "mcp-domaintools",
+    "netutils": {
+      "command": "mcp-netutils",
       "args": [
         // Uncomment and modify as needed:
         // "--remote-server-address=https://your-custom-doh-server.com/dns-query",
@@ -53,20 +53,20 @@ Add the following configuration to your editor's settings to use `mcp-domaintool
 }
 ```
 
-You can use `mcp-domaintools` directly from your `$PATH` as shown above, or provide the full path to the binary (e.g., `/path/to/mcp-domaintools`).
+You can use `mcp-netutils` directly from your `$PATH` as shown above, or provide the full path to the binary (e.g., `/path/to/mcp-netutils`).
 
-Alternatively, you can run `mcp-domaintools` directly with Docker without installing the binary:
+Alternatively, you can run `mcp-netutils` directly with Docker without installing the binary:
 
 ```json5
 {
   "mcpServers": {
-    "domaintools": {
+    "netutils": {
       "command": "docker",
       "args": [
         "run",
         "-i",
         "--rm",
-        "ghcr.io/patrickdappollonio/mcp-domaintools:latest",
+        "ghcr.io/patrickdappollonio/mcp-netutils:latest",
         // Add custom options if needed:
         // "--remote-server-address=https://your-custom-doh-server.com/dns-query",
         // "--custom-whois-server=whois.yourdomain.com",
@@ -88,11 +88,11 @@ You can also use the MCP server via `npm`:
 ```json5
 {
   "mcpServers": {
-    "domaintools": {
+    "netutils": {
       "command": "npx",
       "args": [
         "-y",
-        "@patrickdappollonio/mcp-domaintools",
+        "@patrickdappollonio/mcp-netutils",
         // Add custom options if needed:
         // "--remote-server-address=https://your-custom-doh-server.com/dns-query",
         // "--custom-whois-server=whois.yourdomain.com",
@@ -109,12 +109,12 @@ You can also use the MCP server via `npm`:
 }
 ```
 
-See ["Available MCP Tools"](#available-mcp-tools) for information on the tools exposed by `mcp-domaintools`.
+See ["Available MCP Tools"](#available-mcp-tools) for information on the tools exposed by `mcp-netutils`.
 
 ### Homebrew (macOS and Linux)
 
 ```bash
-brew install patrickdappollonio/tap/mcp-domaintools
+brew install patrickdappollonio/tap/mcp-netutils
 ```
 
 ### Docker
@@ -122,14 +122,14 @@ brew install patrickdappollonio/tap/mcp-domaintools
 The MCP server is available as a Docker image using `stdio` to communicate:
 
 ```bash
-docker pull ghcr.io/patrickdappollonio/mcp-domaintools:latest
-docker run --rm ghcr.io/patrickdappollonio/mcp-domaintools:latest
+docker pull ghcr.io/patrickdappollonio/mcp-netutils:latest
+docker run --rm ghcr.io/patrickdappollonio/mcp-netutils:latest
 ```
 
 For SSE mode with Docker, expose the SSE port (default `3000`):
 
 ```bash
-docker run --rm -p 3000:3000 ghcr.io/patrickdappollonio/mcp-domaintools:latest --sse --sse-port 3000
+docker run --rm -p 3000:3000 ghcr.io/patrickdappollonio/mcp-netutils:latest --sse --sse-port 3000
 ```
 
 Check the implementation above on how to configure the MCP server to run as a container in your editor or tool.
@@ -139,13 +139,13 @@ Check the implementation above on how to configure the MCP server to run as a co
 The MCP server is also available via `npm`:
 
 ```bash
-npm install @patrickdappollonio/mcp-domaintools@latest
+npm install @patrickdappollonio/mcp-netutils@latest
 ```
 
 Or using `npx`:
 
 ```bash
-npx -y @patrickdappollonio/mcp-domaintools@latest
+npx -y @patrickdappollonio/mcp-netutils@latest
 ```
 
 Which will run the MCP server in `stdio` mode (make sure that's the AI tool the one running `npx` though!).
@@ -154,11 +154,11 @@ Which will run the MCP server in `stdio` mode (make sure that's the AI tool the 
 
 You can use one-click to install in Cursor (note this will use the Docker version of the MCP server since it doesn't require a local binary installation):
 
-[![Install MCP Server](assets/cursor.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=domaintools&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJnaGNyLmlvL3BhdHJpY2tkYXBwb2xsb25pby9tY3AtZG9tYWludG9vbHM6bGF0ZXN0Il0sImVudiI6e319)
+[![Install MCP Server](assets/cursor.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=netutils&config=eyJjb21tYW5kIjoiZG9ja2VyIiwiYXJncyI6WyJydW4iLCItaSIsIi0tcm0iLCJnaGNyLmlvL3BhdHJpY2tkYXBwb2xsb25pby9tY3AtbmV0dXRpbHM6bGF0ZXN0Il0sImVudiI6e319)
 
 ### GitHub Releases
 
-Download the pre-built binaries for your platform from the [GitHub Releases page](https://github.com/patrickdappollonio/mcp-domaintools/releases).
+Download the pre-built binaries for your platform from the [GitHub Releases page](https://github.com/patrickdappollonio/mcp-netutils/releases).
 
 ## Available MCP Tools
 
@@ -176,18 +176,18 @@ There are **7 tools** available:
 
 ### Standard (stdio) Mode
 
-By default, `mcp-domaintools` runs in stdio mode, which is suitable for integration with editors and other tools that communicate via standard input/output.
+By default, `mcp-netutils` runs in stdio mode, which is suitable for integration with editors and other tools that communicate via standard input/output.
 
 ```bash
-mcp-domaintools
+mcp-netutils
 ```
 
 ### Server-Sent Events (SSE) Mode
 
-Alternatively, you can run `mcp-domaintools` as an HTTP server with SSE support for web-based integrations:
+Alternatively, you can run `mcp-netutils` as an HTTP server with SSE support for web-based integrations:
 
 ```bash
-mcp-domaintools --sse --sse-port=3000
+mcp-netutils --sse --sse-port=3000
 ```
 
 In SSE mode, the server will listen on the specified port (default: 3000) and provide the same MCP tools over HTTP using Server-Sent Events. This is useful for web applications or environments where stdio communication isn't practical.
@@ -363,29 +363,29 @@ Checks TLS certificate chain for a domain to analyze certificate validity, expir
 
 ```bash
 # Start the MCP server in stdio mode
-mcp-domaintools
+mcp-netutils
 
 # Start with custom DNS timeout
-mcp-domaintools --timeout=10s
+mcp-netutils --timeout=10s
 
 # Start with custom HTTP ping settings
-mcp-domaintools --http-ping-timeout=15s --http-ping-count=3
+mcp-netutils --http-ping-timeout=15s --http-ping-count=3
 
 # Start in SSE mode on port 8080
-mcp-domaintools --sse --sse-port=8080
+mcp-netutils --sse --sse-port=8080
 ```
 
 ### Advanced Configuration Examples
 
 ```bash
 # Use custom DNS-over-HTTPS server
-mcp-domaintools --remote-server-address=https://dns.quad9.net/dns-query
+mcp-netutils --remote-server-address=https://dns.quad9.net/dns-query
 
 # Use custom WHOIS server
-mcp-domaintools --custom-whois-server=whois.custom.com
+mcp-netutils --custom-whois-server=whois.custom.com
 
 # Combine multiple options
-mcp-domaintools \
+mcp-netutils \
   --timeout=10s \
   --ping-timeout=3s \
   --ping-count=3 \
