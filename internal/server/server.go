@@ -8,16 +8,16 @@ import (
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/miekg/dns"
-	internaldns "github.com/patrickdappollonio/mcp-domaintools/internal/dns"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/http_ping"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/ping"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/resolver"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/tls"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/whois"
+	internaldns "github.com/patrickdappollonio/mcp-netutils/internal/dns"
+	"github.com/patrickdappollonio/mcp-netutils/internal/http_ping"
+	"github.com/patrickdappollonio/mcp-netutils/internal/ping"
+	"github.com/patrickdappollonio/mcp-netutils/internal/resolver"
+	"github.com/patrickdappollonio/mcp-netutils/internal/tls"
+	"github.com/patrickdappollonio/mcp-netutils/internal/whois"
 )
 
-// DomainToolsConfig contains configuration for the domain tools.
-type DomainToolsConfig struct {
+// NetUtilsConfig contains configuration for the network utilities.
+type NetUtilsConfig struct {
 	QueryConfig    *internaldns.QueryConfig
 	WhoisConfig    *whois.Config
 	ResolverConfig *resolver.Config
@@ -37,8 +37,8 @@ func getDNSRecordTypes() []string {
 	return recordTypes
 }
 
-// SetupTools creates and configures the domain query tools.
-func SetupTools(config *DomainToolsConfig) (*server.MCPServer, error) {
+// SetupTools creates and configures the network utility tools.
+func SetupTools(config *NetUtilsConfig) (*server.MCPServer, error) {
 	// Create a new MCP server
 	s := server.NewMCPServer(
 		"DNS and WHOIS Query Tools",

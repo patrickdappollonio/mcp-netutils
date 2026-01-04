@@ -11,12 +11,12 @@ import (
 	"time"
 
 	"github.com/mark3labs/mcp-go/server"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/dns"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/http_ping"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/ping"
-	internalServer "github.com/patrickdappollonio/mcp-domaintools/internal/server"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/tls"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/whois"
+	"github.com/patrickdappollonio/mcp-netutils/internal/dns"
+	"github.com/patrickdappollonio/mcp-netutils/internal/http_ping"
+	"github.com/patrickdappollonio/mcp-netutils/internal/ping"
+	internalServer "github.com/patrickdappollonio/mcp-netutils/internal/server"
+	"github.com/patrickdappollonio/mcp-netutils/internal/tls"
+	"github.com/patrickdappollonio/mcp-netutils/internal/whois"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -84,8 +84,8 @@ func run() error {
 		Port:    443,
 	}
 
-	// Setup domain tools
-	s, err := internalServer.SetupTools(&internalServer.DomainToolsConfig{
+	// Setup network utility tools
+	s, err := internalServer.SetupTools(&internalServer.NetUtilsConfig{
 		QueryConfig:    queryConfig,
 		WhoisConfig:    whoisConfig,
 		PingConfig:     pingConfig,
@@ -94,7 +94,7 @@ func run() error {
 		Version:        version,
 	})
 	if err != nil {
-		return fmt.Errorf("error setting up domain tools: %w", err)
+		return fmt.Errorf("error setting up network utility tools: %w", err)
 	}
 
 	// Start the server

@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/mark3labs/mcp-go/mcp"
-	resp "github.com/patrickdappollonio/mcp-domaintools/internal/response"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/utils"
+	resp "github.com/patrickdappollonio/mcp-netutils/internal/response"
+	"github.com/patrickdappollonio/mcp-netutils/internal/utils"
 )
 
 // Config holds HTTP ping configuration.
@@ -244,7 +244,7 @@ func performSingleHTTPPing(ctx context.Context, method string, parsedURL *url.UR
 	}
 
 	// Set User-Agent
-	req.Header.Set("User-Agent", "mcp-domaintools/http_ping")
+	req.Header.Set("User-Agent", "mcp-netutils/http_ping")
 
 	// Record start time
 	startTime := time.Now()

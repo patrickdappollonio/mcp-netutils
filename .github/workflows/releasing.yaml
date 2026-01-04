@@ -38,22 +38,3 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish to npm
-        uses: evg4b/goreleaser-npm-publisher-action@v1
-        with:
-          prefix: '@patrickdappollonio'
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          description: "Perform DNS lookups, WHOIS queries, connectivity testing, TLS certificate analysis, HTTP endpoint monitoring, and hostname resolution, all from your trusty AI."
-          files: |-
-            LICENSE
-            README.md
-          keywords: |-
-            mcp
-            mcp-server-debug
-            debug-http-headers
-            debug-dns-requests
-            debug-tls-certificates
-            http
-            https
-            cli
-            devtool

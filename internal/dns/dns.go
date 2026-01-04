@@ -11,8 +11,8 @@ import (
 
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/miekg/dns"
-	resp "github.com/patrickdappollonio/mcp-domaintools/internal/response"
-	"github.com/patrickdappollonio/mcp-domaintools/internal/utils"
+	resp "github.com/patrickdappollonio/mcp-netutils/internal/response"
+	"github.com/patrickdappollonio/mcp-netutils/internal/utils"
 	doh "github.com/shynome/doh-client"
 )
 
