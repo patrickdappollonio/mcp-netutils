@@ -34,7 +34,7 @@ For custom WHOIS servers, you can use the `--custom-whois-server` flag. The serv
 
 ## Installation
 
-There are three ways to get this MCP server: you can use the Docker mode (which, if you have Docker installed, will automatically download and run the MCP server) or the binary options, both by getting one [from the releases page](https://github.com/patrickdappollonio/mcp-netutils/releases) or by [installing it with Homebrew for macOS and Linux](#homebrew-macos-and-linux).
+There are two ways to get this MCP server: you can use the Docker mode (which, if you have Docker installed, will automatically download and run the MCP server) or the binary options, both by getting one [from the releases page](https://github.com/patrickdappollonio/mcp-netutils/releases) or by [installing it with Homebrew for macOS and Linux](#homebrew-macos-and-linux).
 
 ### Editor Configuration
 
@@ -92,32 +92,6 @@ Alternatively, you can run `mcp-netutils` directly with Docker without installin
 }
 ```
 
-You can also use the MCP server via `npm`:
-
-```json5
-{
-  "mcpServers": {
-    "netutils": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@patrickdappollonio/mcp-netutils",
-        // Add custom options if needed:
-        // "--remote-server-address=https://your-custom-doh-server.com/dns-query",
-        // "--custom-whois-server=whois.yourdomain.com",
-        // "--timeout=5s",
-        // "--ping-timeout=5s",
-        // "--ping-count=4",
-        // "--http-ping-timeout=10s",
-        // "--http-ping-count=1",
-        // "--tls-timeout=10s"
-      ],
-      "env": {}
-    }
-  }
-}
-```
-
 See ["Available MCP Tools"](#available-mcp-tools) for information on the tools exposed by `mcp-netutils`.
 
 ### Homebrew (macOS and Linux)
@@ -142,23 +116,6 @@ docker run --rm -p 3000:3000 ghcr.io/patrickdappollonio/mcp-netutils:latest --ss
 ```
 
 Check the implementation above on how to configure the MCP server to run as a container in your editor or tool.
-
-### npm
-
-The MCP server is also available via `npm`:
-
-```bash
-npm install @patrickdappollonio/mcp-netutils@latest
-```
-
-Or using `npx`:
-
-```bash
-npx -y @patrickdappollonio/mcp-netutils@latest
-```
-
-Which will run the MCP server in `stdio` mode (make sure that's the AI tool the one running `npx` though!).
-
 
 ### GitHub Releases
 
