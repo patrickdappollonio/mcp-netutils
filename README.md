@@ -6,7 +6,6 @@
 >
 > This project is now called `mcp-netutils`. If you're upgrading, please update your references:
 > - **Docker images**: `ghcr.io/patrickdappollonio/mcp-netutils:latest`
-> - **npm package**: `@patrickdappollonio/mcp-netutils`
 > - **Homebrew**: `patrickdappollonio/tap/mcp-netutils`
 > - **Configuration key**: Use `"netutils"` in your MCP server configuration
 >
