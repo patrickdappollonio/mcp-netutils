@@ -6,7 +6,7 @@ toolchain go1.24.3
 
 require (
 	github.com/likexian/whois v1.15.7
-	github.com/mark3labs/mcp-go v0.43.2
+	github.com/mark3labs/mcp-go v0.44.1
 	github.com/miekg/dns v1.1.72
 	github.com/shynome/doh-client v1.2.0
 	github.com/stretchr/testify v1.11.1
