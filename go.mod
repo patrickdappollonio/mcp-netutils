@@ -1,8 +1,6 @@
 module github.com/patrickdappollonio/mcp-netutils
 
-go 1.24.0
-
-toolchain go1.24.3
+go 1.25.0
 
 require (
 	github.com/likexian/whois v1.15.7
@@ -11,7 +9,7 @@ require (
 	github.com/shynome/doh-client v1.2.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/net v0.49.0
-	golang.org/x/sync v0.19.0
+	golang.org/x/sync v0.20.0
 )
 
 require (
