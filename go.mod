@@ -9,7 +9,7 @@ require (
 	github.com/shynome/doh-client v1.2.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/net v0.49.0
-	golang.org/x/sync v0.20.0
+	golang.org/x/sync v0.21.0
 )
 
 require (
